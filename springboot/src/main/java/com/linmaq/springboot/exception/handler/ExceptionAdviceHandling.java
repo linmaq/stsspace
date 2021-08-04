@@ -1,5 +1,10 @@
 package com.linmaq.springboot.exception.handler;
 
+import com.linmaq.springboot.exception.design.DownStreamClientException;
+import com.linmaq.springboot.exception.design.DownStreamServerException;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
@@ -9,4 +14,22 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 @RestControllerAdvice
 public class ExceptionAdviceHandling {
+
+    @ExceptionHandler(DownStreamClientException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Object downStreamClientException() {
+        return null;
+    }
+
+    @ExceptionHandler(DownStreamServerException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Object downStreamServerException() {
+        return null;
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Object exception() {
+        return null;
+    }
 }
