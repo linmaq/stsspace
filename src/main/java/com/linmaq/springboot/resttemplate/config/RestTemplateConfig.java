@@ -1,6 +1,6 @@
-package com.linmaq.springboot.config;
+package com.linmaq.springboot.resttemplate.config;
 
-import com.linmaq.springboot.exception.handler.RestTemplateErrorHandling;
+import com.linmaq.springboot.resttemplate.exception.handler.RestTemplateErrorHandling;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.config.Registry;

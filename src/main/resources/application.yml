@@ -1,0 +1,5 @@
+server:
+  port: 80
+
+payload: "{\"userId\":\"xxx\"}"
+endpoint: "https://www.abc.com/getinfos/xxx"

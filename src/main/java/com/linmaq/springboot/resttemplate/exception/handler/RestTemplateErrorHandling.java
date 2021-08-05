@@ -1,7 +1,7 @@
-package com.linmaq.springboot.exception.handler;
+package com.linmaq.springboot.resttemplate.exception.handler;
 
-import com.linmaq.springboot.exception.design.DownStreamClientException;
-import com.linmaq.springboot.exception.design.DownStreamServerException;
+import com.linmaq.springboot.resttemplate.exception.design.DownStreamClientException;
+import com.linmaq.springboot.resttemplate.exception.design.DownStreamServerException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.util.FileCopyUtils;

@@ -1,4 +1,4 @@
-package com.linmaq.springboot.exception.design;
+package com.linmaq.springboot.resttemplate.exception.design;
 
 /**
  * @Class : DownStreamClientException
