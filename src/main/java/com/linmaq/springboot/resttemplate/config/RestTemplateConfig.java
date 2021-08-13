@@ -67,6 +67,7 @@ public class RestTemplateConfig {
         return HttpClientBuilder.create()
                 .setDefaultRequestConfig(config)
                 .setConnectionManager(manager)
+                .disableCookieManagement()
                 .build();
     }
 }
