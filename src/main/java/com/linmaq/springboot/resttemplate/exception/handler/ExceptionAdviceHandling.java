@@ -18,18 +18,18 @@ public class ExceptionAdviceHandling {
     @ExceptionHandler(DownStreamClientException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Object downStreamClientException() {
-        return null;
+        return "downStreamClientException";
     }
 
     @ExceptionHandler(DownStreamServerException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Object downStreamServerException() {
-        return null;
+        return "downStreamServerException";
     }
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Object exception() {
-        return null;
+        return "other exception";
     }
 }
