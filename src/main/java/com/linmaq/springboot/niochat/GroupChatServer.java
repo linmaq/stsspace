@@ -1,4 +1,4 @@
-package com.chat;
+package com.linmaq.springboot.niochat;
 
 import lombok.val;
 

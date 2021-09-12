@@ -15,13 +15,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.ValidationException;
+import java.util.*;
 
 /**
  * @Class : ExceptionAdviceHandling
@@ -49,6 +50,22 @@ public class ExceptionAdviceHandling {
     public Object exception(MethodArgumentNotValidException ex) {
         log.debug("MethodArgumentNotValidException");
         return handlerNotValidException(ex);
+    }
+
+    @ExceptionHandler
+    @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public String handle(ValidationException exception) {
+        if (exception instanceof ConstraintViolationException) {
+            ConstraintViolationException exs = (ConstraintViolationException) exception;
+
+            Set<ConstraintViolation<?>> violations = exs.getConstraintViolations();
+            for (ConstraintViolation<?> item : violations) {
+                /**打印验证不通过的信息*/
+                System.out.println(item.getMessage());
+            }
+        }
+        return "bad request, ";
     }
 
     private ResponseEntity<Map<String, Object>> handlerNotValidException(Exception ex) {
