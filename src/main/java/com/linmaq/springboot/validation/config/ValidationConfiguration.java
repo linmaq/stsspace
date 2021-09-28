@@ -1,5 +1,7 @@
 package com.linmaq.springboot.validation.config;
 
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hibernate.validator.HibernateValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +26,14 @@ public class ValidationConfiguration {
                 .buildValidatorFactory();
         Validator validator = validatorFactory.getValidator();
         return validator;
+    }
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        //验证时忽略大小写
+        objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
+        return objectMapper;
     }
 
     @Bean
